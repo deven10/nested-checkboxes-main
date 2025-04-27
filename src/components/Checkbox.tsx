@@ -25,12 +25,8 @@ export const Checkbox = ({ item, setChecked, checked }) => {
         updateChildren(item);
       }
 
-      console.log("jsonData: ", jsonData);
-
       // if all childrens are checked, checking its parents
       const verifyChildren = (item) => {
-        console.log("-----");
-        console.log("item: ", item);
         if (!item.children) return newState[item.id] || false;
 
         const allChildsChecked = item.children.every((child) =>
@@ -41,7 +37,6 @@ export const Checkbox = ({ item, setChecked, checked }) => {
       };
       jsonData.forEach((element) => verifyChildren(element));
 
-      console.log("newState: ", newState);
       return newState;
     });
   };
